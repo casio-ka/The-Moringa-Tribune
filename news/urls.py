@@ -1,8 +1,8 @@
-from django.urls import path, re_path
-from . import views
+from django.urls import path
+from .views import welcome, news_of_day, past_days_news
 
 urlpatterns = [
-    path ('', views.welcome, name='welcome'),
-    path ('today/',views.news_of_day,name='newsToday'),
-    re_path (r'^archives/(\d{4}-\d{2}-\d{2})/$',views.past_days_news,name = 'pastNews'),
+    path ('', welcome, name='welcome'),
+    path ('today/',news_of_day,name='newsToday'),
+    path ('archives/<slug:past_date>/', past_days_news, name = 'pastNews'),
 ]
