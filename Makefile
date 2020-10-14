@@ -14,3 +14,13 @@ collectstatic:
 app:
 	#django-admin startapp <name>
 	python3 manage.py startapp $(name)
+
+check:
+	python3 manage.py check
+
+test:
+
+	coverage run ./manage.py test
+
+report:
+	coverage html
